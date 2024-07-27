@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-      ensure_installed = {"lua_ls","markdown_oxide","terraformls","puppet"}})
+        ensure_installed = { "lua_ls","gopls","golangci_lint_ls" } })
     end
   },
   {
@@ -28,15 +28,16 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-	  config = function()
-		  local lspconfig = require("lspconfig")
-		  lspconfig.lua_ls.setup({})
-      lspconfig.terraformls.setup({})
-      lspconfig.puppet.setup({})
-      vim.keymap.set('n','<leader>h',vim.lsp.buf.hover,{})
-      vim.keymap.set('n','gd',vim.lsp.buf.definition,{})
-      vim.keymap.set('n','<leader>ca',vim.lsp.buf.code_action,{})
-	  end
+    lazy = false,
+    config = function()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local lspconfig = require("lspconfig")
+      lspconfig.lua_ls.setup({ capabilities = capabilities })
+      lspconfig.terraformls.setup({ capabilities = capabilities })
+      lspconfig.puppet.setup({ capabilities = capabilities })
+      vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, {})
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+    end
   }
 }
-
