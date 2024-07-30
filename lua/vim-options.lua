@@ -19,4 +19,5 @@ vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap('n', 'Y', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'Y', '"+y', { noremap = true, silent = true })
