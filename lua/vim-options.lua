@@ -39,3 +39,12 @@ vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
 
 -- to escape from the holy grave of insert mode just use jj
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true })
+
+-- to save file 
+vim.api.nvim_set_keymap('n', '<leader>w', ':w!<CR>', { noremap = true , silent = true })
+
+-- to quite file
+vim.api.nvim_set_keymap('n', '<leader>q', ':q!<CR>', { noremap = true , silent = true })
+
+-- to save and quite all file
+vim.api.nvim_set_keymap('n', '<leader>qa', ':wqa!<CR>', { noremap = true, silent = true })
