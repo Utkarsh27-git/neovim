@@ -35,7 +35,20 @@ return {
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.terraformls.setup({ capabilities = capabilities })
       lspconfig.gopls.setup({ capabilities = capabilities })
-      lspconfig.golangci_lint_ls.setup({ capabilities = capabilities })
+      lspconfig.golangci_lint_ls.setup({
+        capabilities = capabilities,
+        cmd = {"gopls"},
+        filetypes = {"go","gomod","gowork","gotmpl"},
+        settins = {
+          gopls = {
+            completeUnimported = true,
+            userPlaceholders = true,
+            analyses = {
+              unusedparams = true,
+            },
+          },
+        },
+      })
       lspconfig.puppet.setup({ capabilities = capabilities })
       vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
