@@ -8,6 +8,13 @@ vim.cmd("set shiftwidth=2")
 
 vim.g.mapleader = " "
 
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = false
+
+vim.opt.scrolloff = 8
+
 -- copy and paste to down/up
 vim.keymap.set('n', '<leader>kd', ':.t.<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ku', ':.t-1<CR>', { noremap = true, silent = true })
@@ -40,6 +47,18 @@ vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
 -- to escape from the holy grave of insert mode just use jj
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true })
 
--- to save file 
-vim.api.nvim_set_keymap('n', '<leader>w', ':w!<CR>', { noremap = true , silent = true })
+-- to save file
+vim.api.nvim_set_keymap('n', '<leader>w', ':w!<CR>', { noremap = true, silent = true })
 
+
+
+--- greatest remaps of my life
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>:v=gv")
+
+
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
