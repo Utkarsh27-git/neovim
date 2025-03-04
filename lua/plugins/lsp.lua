@@ -3,34 +3,34 @@ return {
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
-    end
+    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "gopls", "golangci_lint_ls" } })
-    end
+        ensure_installed = { "lua_ls", "gopls", "golangci_lint_ls" },
+      })
+    end,
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",
     config = function()
-      require("telescope").setup {
+      require("telescope").setup({
         extensions = {
           ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-            }
-          }
-        }
-      }
+            require("telescope.themes").get_dropdown({}),
+          },
+        },
+      })
       require("telescope").load_extension("ui-select")
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
       local on_attach = function(client, bufnr)
         -- Helper to define buffer-local keymaps
@@ -40,11 +40,11 @@ return {
         end
 
         -- LSP-specific keymaps
-        buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-        buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-        buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-        buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-        buf_set_keymap('n', '<leader>h', '<cmd>lua vim.lsp.buf.hover()<CR>')
+        buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+        buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+        buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+        buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+        buf_set_keymap("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
 
         -- Example: Format on save (optional)
         if client.server_capabilities.documentFormattingProvider then
@@ -73,7 +73,7 @@ return {
       lspconfig.pyright.setup({
         capabilities = capabilities,
         on_attach = on_attach, -- Attach the custom function
-        filetypes = { "python", "py" }
+        filetypes = { "python", "py" },
       })
 
       lspconfig.golangci_lint_ls.setup({
@@ -96,6 +96,6 @@ return {
         on_attach = on_attach,
         filetypes = { "puppet", "pp" }, -- Puppet filetypes
       })
-    end
-  }
+    end,
+  },
 }

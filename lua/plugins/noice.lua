@@ -1,28 +1,34 @@
-return   {
+return {
   "folke/noice.nvim",
   config = function()
-    require("noice").setup({
-      -- add any options here
+    local noice = require("noice")
+
+    noice.setup({
+      -- Customize `msg_show` event filters to allow macro recording message
       routes = {
         {
           filter = {
-            event = 'msg_show',
+            event = "msg_show",
             any = {
-              { find = '%d+L, %d+B' },
-              { find = '; after #%d+' },
-              { find = '; before #%d+' },
-              { find = '%d fewer lines' },
-              { find = '%d more lines' },
+              { find = "%d+L, %d+B" },
+              { find = "; after #%d+" },
+              { find = "; before #%d+" },
+              { find = "%d fewer lines" },
+              { find = "%d more lines" },
             },
           },
-          opts = { skip = true },
-        }
+          opts = { skip = true }, -- Skip unnecessary messages as before
+        },
       },
     })
+
+    -- Keymap to dismiss Noice messages
+    vim.keymap.set("n", "<leader>dm", function()
+      vim.cmd("Noice dismiss")
+    end, { desc = "Dismiss Noice notifications and clear hlsearch" })
   end,
   dependencies = {
-    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
-  }
+  },
 }

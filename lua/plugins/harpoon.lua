@@ -21,8 +21,8 @@ return {
 
     -- Run the current file dynamically based on file type
     vim.keymap.set("n", "<leader>hr", function()
-      local file_path = vim.fn.expand("%")       -- Get the current file path
-      local file_type = vim.bo.filetype          -- Get the current file type
+      local file_path = vim.fn.expand("%") -- Get the current file path
+      local file_type = vim.bo.filetype -- Get the current file type
 
       -- Commands for each file type
       local commands = {
