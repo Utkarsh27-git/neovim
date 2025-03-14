@@ -28,6 +28,8 @@ return {
     end, { desc = "[S]earch [N]eovim files" })
     vim.keymap.set("n", "<leader>u", telescope.extensions.undo.undo, {})
 
+    vim.keymap.set("n", "<leader>km", "<cmd>Telescope keymaps<cr>", { desc = "Show keymaps" })
+
     --- find files in all repos
     vim.keymap.set("n", "<leader>ga", function()
       require("telescope.builtin").find_files({
