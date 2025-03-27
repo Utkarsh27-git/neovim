@@ -13,7 +13,7 @@ This repository contains my Neovim configuration files, built with Lua for impro
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/Rohit-wagh/nvim ~/.config/nvim
+   git clone https://github.com/Utkarsh27-git/neovim.git ~/.config/nvim
    ```
 
 2. **Install [Neovim](https://neovim.io/) (v0.7.0 or newer).**
