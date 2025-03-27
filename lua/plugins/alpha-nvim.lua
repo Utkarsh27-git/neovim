@@ -10,7 +10,7 @@ return {
 
     dashboard.section.header.val = {
       [[                Java: write once, debug everywhere! -                  ]],
-      [[                                                     Rohit Wagh :)     ]],
+      [[                                                     Utkarsh Solanki :)     ]],
       [[                                                                       ]],
       [[                                                                       ]],
       [[                                                                       ]],
